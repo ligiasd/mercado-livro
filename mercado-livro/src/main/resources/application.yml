@@ -1,0 +1,8 @@
+spring:
+  jpa:
+    hibernate:
+      dll-auto: validate
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mercadolivro_dev
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
