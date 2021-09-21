@@ -8,6 +8,6 @@ data class PostBookRequest(
 
     var price: BigDecimal,
 
-    @JsonAlias()
-    var cusomerId: Int
+    @JsonAlias("customer_id")
+    var customerId: Int
 )
