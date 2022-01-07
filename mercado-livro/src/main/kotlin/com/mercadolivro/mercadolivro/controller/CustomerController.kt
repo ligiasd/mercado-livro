@@ -2,8 +2,9 @@ package com.mercadolivro.mercadolivro.controller
 
 import com.mercadolivro.mercadolivro.controller.request.PostCustomerRequest
 import com.mercadolivro.mercadolivro.controller.request.PutCustomerRequest
+import com.mercadolivro.mercadolivro.controller.response.CustomerResponse
 import com.mercadolivro.mercadolivro.extension.toCustomerModel
-import com.mercadolivro.mercadolivro.model.CustomerModel
+import com.mercadolivro.mercadolivro.extension.toResponse
 import com.mercadolivro.mercadolivro.service.CustomerService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -15,8 +16,8 @@ class CustomerController(
 ) {
 
     @GetMapping
-    fun getAll(@RequestParam name: String?): List<CustomerModel>{
-        return customerService.getAll(name)
+    fun getAll(@RequestParam name: String?): List<CustomerResponse>{
+        return customerService.getAll(name).map { it.toResponse() }
     }
 
     @PostMapping
@@ -27,20 +28,20 @@ class CustomerController(
     }
 
     @GetMapping("{id}")
-    fun getCustomer(@PathVariable id: Int): CustomerModel{
-        return customerService.getById(id)
+    fun getCustomer(@PathVariable id: Int): CustomerResponse{
+        return customerService.findById(id).toResponse()
     }
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun updateCustomer(@PathVariable id: Int, @RequestBody customer: PutCustomerRequest){
-        customerService.update(customer.toCustomerModel(id))
+    fun update(@PathVariable id: Int, @RequestBody customer: PutCustomerRequest){
+        val customerSaved = customerService.findById(id)
+        customerService.update(customer.toCustomerModel(customerSaved))
     }
 
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun deleteCustomer(@PathVariable id: Int){
-        customerService.deleteCustomer(id)
-
+    fun delete(@PathVariable id: Int) {
+        customerService.delete(id)
     }
 }

@@ -3,6 +3,6 @@ spring:
     hibernate:
       dll-auto: validate
   datasource:
-    url: jdbc:postgresql://localhost:5432/mercadolivro_dev
+    url: jdbc:postgresql://localhost:5432/mercadolivro
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}

@@ -1,6 +1,6 @@
 package com.mercadolivro.mercadolivro.model
 
-import java.util.*
+import com.mercadolivro.mercadolivro.enums.CustomerStatus
 import javax.persistence.*
 
 @Entity(name = "customer")
@@ -16,4 +16,8 @@ data class CustomerModel (
 
     @Column(name = "email")
     var email: String,
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    var status: CustomerStatus
 )
