@@ -1,3 +1,3 @@
 # mercado-livro
 
-- Link collection Postman:  https://www.postman.com/collections/068405f8534d437819ab
+- Link collection Postman:  https://www.getpostman.com/collections/73ff34ca5e00e2486c83
