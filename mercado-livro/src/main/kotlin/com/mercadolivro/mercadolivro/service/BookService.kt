@@ -1,6 +1,7 @@
 package com.mercadolivro.mercadolivro.service
 
 import com.mercadolivro.mercadolivro.enums.BookStatus
+import com.mercadolivro.mercadolivro.exception.NotFoundException
 import com.mercadolivro.mercadolivro.model.BookModel
 import com.mercadolivro.mercadolivro.model.CustomerModel
 import com.mercadolivro.mercadolivro.repository.BookRepository
@@ -27,7 +28,7 @@ class BookService(
     }
 
     fun findById(id: Int): BookModel {
-        return bookRepository.findById(id).orElseThrow{ Exception("Não existe este recurso.")}
+        return bookRepository.findById(id).orElseThrow{ NotFoundException( "Book ${id} not exists", "ML-0001") }
     }
 
     fun delete(id: Int) {
