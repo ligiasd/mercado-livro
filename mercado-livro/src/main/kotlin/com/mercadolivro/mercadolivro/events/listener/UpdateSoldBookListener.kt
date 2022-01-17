@@ -1,19 +1,20 @@
 package com.mercadolivro.mercadolivro.events.listener
 
 import com.mercadolivro.mercadolivro.events.PurchaseEvent
+import com.mercadolivro.mercadolivro.service.BookService
 import com.mercadolivro.mercadolivro.service.PurchaseService
 import org.springframework.context.event.EventListener
+import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Component
 import java.util.*
 
 @Component
-class GenerateNfeListener(
-    private val purchaseService: PurchaseService
+class UpdateSoldBookListener(
+    private val bookService: BookService
 ) {
+    @Async
     @EventListener
     fun listen(purchaseEvent: PurchaseEvent){
-        val nfe = UUID.randomUUID().toString()
-        val purchaseModel = purchaseEvent.purchaseModel.copy(nfe = nfe)
-        purchaseService.update(purchaseModel)
+        bookService.purchase(purchaseEvent.purchaseModel.books)
     }
 }
