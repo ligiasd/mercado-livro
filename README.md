@@ -14,6 +14,6 @@ DATABASE_PASSWORD=your_password;
 DATABASE_HOST_PORT=localhost:5432;
 DATABASE_NAME=your_name_of_database
 
--Generate UUID to test: https://www.uuidgenerator.net/
+- Generate UUID to test: https://www.uuidgenerator.net/
 
--Link to implementation jwt: https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt/0.2
+- Link to implementation jwt: https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt/0.2
