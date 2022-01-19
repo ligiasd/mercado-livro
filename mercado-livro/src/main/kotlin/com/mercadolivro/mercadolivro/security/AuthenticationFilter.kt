@@ -19,7 +19,7 @@ class AuthenticationFilter(
 
 ): UsernamePasswordAuthenticationFilter(authenticationManager) {
 
-    override fun attemptAuthentication(request: HttpServletRequest, response: HttpServletResponse?): Authentication {
+    override fun attemptAuthentication(request: HttpServletRequest, response: HttpServletResponse): Authentication {
         try {
             val loginRequest = jacksonObjectMapper().readValue(request.inputStream, LoginRequest::class.java)
             val id = customerRepository.findByEmail(loginRequest.email)?.id
