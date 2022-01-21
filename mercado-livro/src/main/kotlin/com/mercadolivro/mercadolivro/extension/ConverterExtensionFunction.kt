@@ -6,10 +6,12 @@ import com.mercadolivro.mercadolivro.controller.request.PutBookRequest
 import com.mercadolivro.mercadolivro.controller.request.PutCustomerRequest
 import com.mercadolivro.mercadolivro.controller.response.BookResponse
 import com.mercadolivro.mercadolivro.controller.response.CustomerResponse
+import com.mercadolivro.mercadolivro.controller.response.PageResponse
 import com.mercadolivro.mercadolivro.enums.BookStatus
 import com.mercadolivro.mercadolivro.enums.CustomerStatus
 import com.mercadolivro.mercadolivro.model.BookModel
 import com.mercadolivro.mercadolivro.model.CustomerModel
+import org.springframework.data.domain.Page
 import java.math.BigDecimal
 
 fun PostCustomerRequest.toCustomerModel(): CustomerModel{
@@ -63,4 +65,12 @@ fun BookModel.toResponse(): BookResponse {
         status = this.status
     )
 
+}
+
+fun <T >Page<T>.toPageResponse(): PageResponse<T> {
+    return PageResponse(
+        this.content,
+        this.number,
+        this.totalElements,
+        this.totalPages)
 }
