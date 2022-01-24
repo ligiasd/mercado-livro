@@ -9,10 +9,9 @@ import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
 import io.mockk.verify
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import java.util.*
 
@@ -53,6 +52,23 @@ class CustomerServiceTest {
         verify(exactly = 0) { customerRepository.findAll() }
         verify(exactly = 1) { customerRepository.findByNameContaining(name) }
     }
+
+    @Test
+    fun `should create customer and encrypt password`() {
+        val initialPassword = Math.random().toString()
+        val fakeCustomers = buildCustomer(password = initialPassword)
+        val fakePassword = UUID.randomUUID().toString()
+        val fakeCustomerEncrypt = fakeCustomers.copy(password = fakePassword)
+
+        every { customerRepository.save(fakeCustomerEncrypt) } returns fakeCustomers
+        every { bCrypt.encode(initialPassword) } returns fakePassword
+
+        customerService.create(fakeCustomers)
+
+        verify(exactly = 1) { customerRepository.save(fakeCustomerEncrypt) }
+        verify(exactly = 1) { bCrypt.encode(initialPassword) }
+    }
+
         fun buildCustomer(
         id: Int? = null,
         name: String = "customer name",
