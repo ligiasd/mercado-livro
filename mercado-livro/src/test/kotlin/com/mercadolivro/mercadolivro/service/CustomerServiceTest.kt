@@ -39,10 +39,21 @@ class CustomerServiceTest {
         assertEquals(fakeCustomers, customers)
         verify(exactly = 1) { customerRepository.findAll() }
         verify(exactly = 0) { customerRepository.findByNameContaining(any()) }
+
     }
+    @Test
+    fun `should return customer when name is informed`() {
+        val name = UUID.randomUUID().toString()
+        val fakeCustomers = listOf(buildCustomer(), buildCustomer())
 
+        every { customerRepository.findByNameContaining(name) } returns fakeCustomers
+        val customers = customerService.getAll(name)
 
-    fun buildCustomer(
+        assertEquals(fakeCustomers, customers)
+        verify(exactly = 0) { customerRepository.findAll() }
+        verify(exactly = 1) { customerRepository.findByNameContaining(name) }
+    }
+        fun buildCustomer(
         id: Int? = null,
         name: String = "customer name",
         email: String = "${UUID.randomUUID()}@email.com",
@@ -56,4 +67,6 @@ class CustomerServiceTest {
         roles = setOf(Role.CUSTOMER)
 
     )
+
+
 }
