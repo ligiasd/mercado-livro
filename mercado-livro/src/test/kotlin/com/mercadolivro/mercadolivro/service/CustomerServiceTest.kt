@@ -100,6 +100,21 @@ class CustomerServiceTest {
         verify(exactly = 1) { customerRepository.findById(id) }
     }
 
+    @Test
+    fun `should update customer`(){
+        val id = Random().nextInt()
+        val fakeCustomer = buildCustomer(id = id)
+
+        every { customerRepository.existsById(id) } returns true
+        every { customerRepository.save(fakeCustomer) } returns fakeCustomer
+
+        customerService.update(fakeCustomer)
+        verify(exactly = 1) { customerRepository.existsById(id) }
+        verify(exactly = 1) { customerRepository.save(fakeCustomer) }
+
+    }
+
+
         fun buildCustomer(
         id: Int? = null,
         name: String = "customer name",
