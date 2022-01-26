@@ -1,6 +1,7 @@
 package com.mercadolivro.mercadolivro.service
 
 import com.mercadolivro.mercadolivro.enums.CustomerStatus
+import com.mercadolivro.mercadolivro.enums.Errors
 import com.mercadolivro.mercadolivro.enums.Role
 import com.mercadolivro.mercadolivro.exception.NotFoundException
 import com.mercadolivro.mercadolivro.model.CustomerModel
@@ -150,10 +151,28 @@ class CustomerServiceTest {
 
         customerService.delete(id)
 
-        verify { bookService.deleteByCustomer(fakeCustomer) }
-        verify { customerRepository.save(expectedCustomer) }
+        verify(exactly = 1) { customerService.findById(id) }
+        verify(exactly = 1) { bookService.deleteByCustomer(fakeCustomer) }
+        verify(exactly = 1) { customerRepository.save(expectedCustomer) }
     }
 
+    @Test
+    fun `should throw found exception when delete customer`() {
+        val id = Random().nextInt()
+
+        every { customerService.findById(id) } throws NotFoundException(Errors.ML201.message.format(id), Errors.ML201.code)
+
+        val error = assertThrows<NotFoundException> {
+            customerService.delete(id)
+        }
+
+        assertEquals("Customer [${id}] not exists", error.message)
+        assertEquals("ML-201", error.erroCode)
+
+        verify(exactly = 1) { customerService.findById(id) }
+        verify(exactly = 0) { bookService.deleteByCustomer(any()) }
+        verify(exactly = 0) { customerRepository.save(any()) }
+    }
 
         fun buildCustomer(
         id: Int? = null,
