@@ -4,6 +4,7 @@ import com.mercadolivro.mercadolivro.enums.CustomerStatus
 import com.mercadolivro.mercadolivro.enums.Errors
 import com.mercadolivro.mercadolivro.enums.Role
 import com.mercadolivro.mercadolivro.exception.NotFoundException
+import com.mercadolivro.mercadolivro.helper.buildCustomer
 import com.mercadolivro.mercadolivro.model.CustomerModel
 import com.mercadolivro.mercadolivro.repository.CustomerRepository
 import io.mockk.every
@@ -14,13 +15,13 @@ import io.mockk.junit5.MockKExtension
 import io.mockk.just
 import io.mockk.runs
 import io.mockk.verify
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import java.util.*
-import javax.validation.constraints.AssertTrue
 
 @ExtendWith(MockKExtension::class)
 class CustomerServiceTest {
@@ -186,21 +187,5 @@ class CustomerServiceTest {
 
         verify(exactly = 1) { customerRepository.existsByEmail(email) }
     }
-
-        private fun buildCustomer(
-        id: Int? = null,
-        name: String = "customer name",
-        email: String = "${UUID.randomUUID()}@email.com",
-        password: String = "password"
-    ) = CustomerModel (
-        id = id,
-        name = name,
-        email = email,
-        status = CustomerStatus.ATIVO,
-        password = password,
-        roles = setOf(Role.CUSTOMER)
-
-    )
-
 
 }
