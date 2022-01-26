@@ -8,7 +8,10 @@ import com.mercadolivro.mercadolivro.repository.CustomerRepository
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
+import io.mockk.impl.annotations.SpyK
 import io.mockk.junit5.MockKExtension
+import io.mockk.just
+import io.mockk.runs
 import io.mockk.verify
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -30,6 +33,7 @@ class CustomerServiceTest {
     private lateinit var bCrypt: BCryptPasswordEncoder
 
     @InjectMockKs
+    @SpyK
     private lateinit var customerService: CustomerService
 
     @Test
@@ -132,6 +136,22 @@ class CustomerServiceTest {
         verify(exactly = 1) { customerRepository.existsById(id) }
         verify(exactly = 0) { customerRepository.save(any()) }
 
+    }
+
+    @Test
+    fun `should delete customer`() {
+        val id = Random().nextInt()
+        val fakeCustomer = buildCustomer(id = id)
+        val expectedCustomer = fakeCustomer.copy(status = CustomerStatus.INATIVO)
+
+        every { customerService.findById(id) } returns fakeCustomer
+        every { customerRepository.save(expectedCustomer) } returns expectedCustomer
+        every { bookService.deleteByCustomer(fakeCustomer) } just runs
+
+        customerService.delete(id)
+
+        verify { bookService.deleteByCustomer(fakeCustomer) }
+        verify { customerRepository.save(expectedCustomer) }
     }
 
 
