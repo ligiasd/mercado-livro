@@ -15,12 +15,13 @@ import io.mockk.just
 import io.mockk.runs
 import io.mockk.verify
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.extension.ExtendWith
-import org.springframework.data.crossstore.ChangeSetPersister
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import java.util.*
+import javax.validation.constraints.AssertTrue
 
 @ExtendWith(MockKExtension::class)
 class CustomerServiceTest {
@@ -174,7 +175,20 @@ class CustomerServiceTest {
         verify(exactly = 0) { customerRepository.save(any()) }
     }
 
-        fun buildCustomer(
+    @Test
+    fun `should return true when email available`() {
+        val email = "${Random().nextInt()}@email.com"
+
+        every { customerRepository.existsByEmail(email) } returns false
+
+        val emailAvailable = customerService.emailAvailable(email)
+
+        assertTrue(emailAvailable)
+
+        verify(exactly = 1) { customerRepository.existsByEmail(email) }
+    }
+
+        private fun buildCustomer(
         id: Int? = null,
         name: String = "customer name",
         email: String = "${UUID.randomUUID()}@email.com",
