@@ -114,6 +114,26 @@ class CustomerServiceTest {
 
     }
 
+    @Test
+    fun `should throw not found exception when update customer`(){
+        val id = Random().nextInt()
+        val fakeCustomer = buildCustomer(id = id)
+
+        every { customerRepository.existsById(id) } returns false
+        every { customerRepository.save(fakeCustomer) } returns fakeCustomer
+
+        val error = assertThrows<NotFoundException> {
+            customerService.update(fakeCustomer)
+        }
+
+        assertEquals("Customer [${id}] not exists", error.message)
+        assertEquals("ML-201", error.erroCode)
+
+        verify(exactly = 1) { customerRepository.existsById(id) }
+        verify(exactly = 0) { customerRepository.save(any()) }
+
+    }
+
 
         fun buildCustomer(
         id: Int? = null,
