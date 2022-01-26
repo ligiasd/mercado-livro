@@ -14,8 +14,7 @@ import io.mockk.junit5.MockKExtension
 import io.mockk.just
 import io.mockk.runs
 import io.mockk.verify
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.extension.ExtendWith
@@ -179,11 +178,11 @@ class CustomerServiceTest {
     fun `should return true when email available`() {
         val email = "${Random().nextInt()}@email.com"
 
-        every { customerRepository.existsByEmail(email) } returns false
+        every { customerRepository.existsByEmail(email) } returns true
 
         val emailAvailable = customerService.emailAvailable(email)
 
-        assertTrue(emailAvailable)
+        assertFalse(emailAvailable)
 
         verify(exactly = 1) { customerRepository.existsByEmail(email) }
     }
