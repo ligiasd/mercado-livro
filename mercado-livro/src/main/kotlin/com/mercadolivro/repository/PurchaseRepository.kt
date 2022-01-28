@@ -1,4 +1,4 @@
-package com.mercadolivro.mercadolivro.repository
+package com.mercadolivro.repository
 
 import com.mercadolivro.mercadolivro.model.PurchaseModel
 import org.springframework.data.repository.CrudRepository

@@ -1,4 +1,4 @@
-package com.mercadolivro.mercadolivro.service
+package com.mercadolivro.service
 
 
 import com.mercadolivro.mercadolivro.enums.CustomerStatus
@@ -6,7 +6,7 @@ import com.mercadolivro.mercadolivro.enums.Errors
 import com.mercadolivro.mercadolivro.enums.Role
 import com.mercadolivro.mercadolivro.exception.NotFoundException
 import com.mercadolivro.mercadolivro.model.CustomerModel
-import com.mercadolivro.mercadolivro.repository.CustomerRepository
+import com.mercadolivro.repository.CustomerRepository
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 

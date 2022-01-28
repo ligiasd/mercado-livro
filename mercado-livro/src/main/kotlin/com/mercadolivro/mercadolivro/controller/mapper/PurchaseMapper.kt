@@ -2,8 +2,8 @@ package com.mercadolivro.mercadolivro.controller.mapper
 
 import com.mercadolivro.mercadolivro.controller.request.PostPurchaseRequest
 import com.mercadolivro.mercadolivro.model.PurchaseModel
-import com.mercadolivro.mercadolivro.service.BookService
-import com.mercadolivro.mercadolivro.service.CustomerService
+import com.mercadolivro.service.BookService
+import com.mercadolivro.service.CustomerService
 import org.springframework.stereotype.Component
 
 @Component

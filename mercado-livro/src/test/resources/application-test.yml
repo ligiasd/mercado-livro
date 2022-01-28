@@ -1,15 +1,14 @@
 spring:
-  profiles:
-    active: test
   datasource:
-    url: jdbc:postgresql://localhost:5432/mercadolivro_test?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/mercadolivrotest
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
   jpa:
     hibernate:
-      dll-auto: update
+      ddl-auto: validate
   jackson:
-    default-property-inclusion: non_null
+    default-property-inclusion: non_ null
+
 jwt:
-  secret: 254bbdf6-9044-400c-98a2-a88262b57636
+  secret: 2c57cf3a-c804-4dc5-8cd4-93b8d8581948
   expiration: 999999

@@ -1,8 +1,8 @@
-package com.mercadolivro.mercadolivro.service
+package com.mercadolivro.service
 
-import com.mercadolivro.mercadolivro.events.PurchaseEvent
-import com.mercadolivro.mercadolivro.helper.buildPurchase
-import com.mercadolivro.mercadolivro.repository.PurchaseRepository
+import com.mercadolivro.events.PurchaseEvent
+import com.mercadolivro.helper.buildPurchase
+import com.mercadolivro.repository.PurchaseRepository
 import io.mockk.*
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK

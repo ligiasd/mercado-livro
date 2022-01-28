@@ -7,8 +7,8 @@ import com.mercadolivro.mercadolivro.controller.response.BookResponse
  import com.mercadolivro.mercadolivro.extension.toBookModel
  import com.mercadolivro.mercadolivro.extension.toPageResponse
  import com.mercadolivro.mercadolivro.extension.toResponse
-import com.mercadolivro.mercadolivro.service.BookService
-import com.mercadolivro.mercadolivro.service.CustomerService
+import com.mercadolivro.service.BookService
+import com.mercadolivro.service.CustomerService
  import org.springframework.data.domain.Page
  import org.springframework.data.domain.Pageable
  import org.springframework.data.web.PageableDefault

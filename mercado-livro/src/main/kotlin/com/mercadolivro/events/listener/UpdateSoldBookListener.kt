@@ -1,12 +1,10 @@
-package com.mercadolivro.mercadolivro.events.listener
+package com.mercadolivro.events.listener
 
-import com.mercadolivro.mercadolivro.events.PurchaseEvent
-import com.mercadolivro.mercadolivro.service.BookService
-import com.mercadolivro.mercadolivro.service.PurchaseService
+import com.mercadolivro.events.PurchaseEvent
+import com.mercadolivro.service.BookService
 import org.springframework.context.event.EventListener
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Component
-import java.util.*
 
 @Component
 class UpdateSoldBookListener(

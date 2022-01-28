@@ -1,4 +1,4 @@
-package com.mercadolivro.mercadolivro.helper
+package com.mercadolivro.helper
 
 import com.mercadolivro.mercadolivro.enums.CustomerStatus
 import com.mercadolivro.mercadolivro.enums.Role
@@ -7,22 +7,21 @@ import com.mercadolivro.mercadolivro.model.CustomerModel
 import com.mercadolivro.mercadolivro.model.PurchaseModel
 import java.math.BigDecimal
 import java.util.*
-import javax.xml.bind.PrintConversionEvent
 
 fun buildCustomer(
     id: Int? = null,
     name: String = "customer name",
     email: String = "${UUID.randomUUID()}@email.com",
     password: String = "password"
-) = CustomerModel (
+) = CustomerModel(
     id = id,
     name = name,
     email = email,
     status = CustomerStatus.ATIVO,
     password = password,
     roles = setOf(Role.CUSTOMER)
-
 )
+
 
 fun buildPurchase(
     id: Int? = null,

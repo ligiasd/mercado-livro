@@ -1,12 +1,12 @@
 package com.mercadolivro.mercadolivro.config
 
 import com.mercadolivro.mercadolivro.enums.Role
-import com.mercadolivro.mercadolivro.repository.CustomerRepository
+import com.mercadolivro.repository.CustomerRepository
 import com.mercadolivro.mercadolivro.security.AuthenticationFilter
 import com.mercadolivro.mercadolivro.security.AuthorizationFilter
 import com.mercadolivro.mercadolivro.security.CustomAuthenticationEntryPoint
 import com.mercadolivro.mercadolivro.security.JwtUtil
-import com.mercadolivro.mercadolivro.service.UserDetailsCustomerService
+import com.mercadolivro.service.UserDetailsCustomerService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod

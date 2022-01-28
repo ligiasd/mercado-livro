@@ -1,11 +1,11 @@
-package com.mercadolivro.mercadolivro.service
+package com.mercadolivro.service
 
 import com.mercadolivro.mercadolivro.enums.BookStatus
 import com.mercadolivro.mercadolivro.enums.Errors
 import com.mercadolivro.mercadolivro.exception.NotFoundException
 import com.mercadolivro.mercadolivro.model.BookModel
 import com.mercadolivro.mercadolivro.model.CustomerModel
-import com.mercadolivro.mercadolivro.repository.BookRepository
+import com.mercadolivro.repository.BookRepository
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service

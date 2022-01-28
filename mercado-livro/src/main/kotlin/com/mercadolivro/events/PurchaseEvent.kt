@@ -1,4 +1,4 @@
-package com.mercadolivro.mercadolivro.events
+package com.mercadolivro.events
 
 import com.mercadolivro.mercadolivro.model.PurchaseModel
 import org.springframework.context.ApplicationEvent

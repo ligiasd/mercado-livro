@@ -1,9 +1,9 @@
-package com.mercadolivro.mercadolivro
+package com.mercadolivro
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest
+@SpringBootTest()
 class MercadoLivroApplicationTests {
 
 	@Test

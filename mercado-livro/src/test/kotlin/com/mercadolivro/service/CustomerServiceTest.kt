@@ -1,12 +1,10 @@
-package com.mercadolivro.mercadolivro.service
+package com.mercadolivro.service
 
 import com.mercadolivro.mercadolivro.enums.CustomerStatus
 import com.mercadolivro.mercadolivro.enums.Errors
-import com.mercadolivro.mercadolivro.enums.Role
 import com.mercadolivro.mercadolivro.exception.NotFoundException
-import com.mercadolivro.mercadolivro.helper.buildCustomer
-import com.mercadolivro.mercadolivro.model.CustomerModel
-import com.mercadolivro.mercadolivro.repository.CustomerRepository
+import com.mercadolivro.helper.buildCustomer
+import com.mercadolivro.repository.CustomerRepository
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK

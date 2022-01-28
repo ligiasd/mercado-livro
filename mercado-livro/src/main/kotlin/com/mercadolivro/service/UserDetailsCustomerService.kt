@@ -1,7 +1,7 @@
-package com.mercadolivro.mercadolivro.service
+package com.mercadolivro.service
 
 import com.mercadolivro.mercadolivro.exception.AuthenticationException
-import com.mercadolivro.mercadolivro.repository.CustomerRepository
+import com.mercadolivro.repository.CustomerRepository
 import com.mercadolivro.mercadolivro.security.UserCustomDetails
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
