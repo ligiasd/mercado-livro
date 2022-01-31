@@ -1,18 +1,17 @@
 package com.mercadolivro.mercadolivro.extension
 
-import com.mercadolivro.mercadolivro.controller.request.PostBookRequest
-import com.mercadolivro.mercadolivro.controller.request.PostCustomerRequest
-import com.mercadolivro.mercadolivro.controller.request.PutBookRequest
-import com.mercadolivro.mercadolivro.controller.request.PutCustomerRequest
-import com.mercadolivro.mercadolivro.controller.response.BookResponse
-import com.mercadolivro.mercadolivro.controller.response.CustomerResponse
-import com.mercadolivro.mercadolivro.controller.response.PageResponse
+import com.mercadolivro.controller.request.PostBookRequest
+import com.mercadolivro.controller.request.PostCustomerRequest
+import com.mercadolivro.controller.request.PutBookRequest
+import com.mercadolivro.controller.request.PutCustomerRequest
+import com.mercadolivro.controller.response.BookResponse
+import com.mercadolivro.controller.response.CustomerResponse
+import com.mercadolivro.controller.response.PageResponse
 import com.mercadolivro.mercadolivro.enums.BookStatus
 import com.mercadolivro.mercadolivro.enums.CustomerStatus
 import com.mercadolivro.mercadolivro.model.BookModel
 import com.mercadolivro.mercadolivro.model.CustomerModel
 import org.springframework.data.domain.Page
-import java.math.BigDecimal
 
 fun PostCustomerRequest.toCustomerModel(): CustomerModel{
     return CustomerModel(name = this.name, email = this.email, status = CustomerStatus.ATIVO, password = this.password)

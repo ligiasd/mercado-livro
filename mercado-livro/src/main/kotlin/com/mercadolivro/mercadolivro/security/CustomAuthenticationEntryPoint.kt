@@ -1,7 +1,7 @@
 package com.mercadolivro.mercadolivro.security
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.mercadolivro.mercadolivro.controller.response.ErrorResponse
+import com.mercadolivro.controller.response.ErrorResponse
 import com.mercadolivro.mercadolivro.enums.Errors
 import org.springframework.http.HttpStatus
 import org.springframework.security.core.AuthenticationException

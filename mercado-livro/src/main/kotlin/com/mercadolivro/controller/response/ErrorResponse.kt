@@ -1,4 +1,4 @@
-package com.mercadolivro.mercadolivro.controller.response
+package com.mercadolivro.controller.response
 
 data class ErrorResponse(
     val httpCode: Int,

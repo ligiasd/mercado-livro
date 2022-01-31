@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/mercadolivrotest
+    url: jdbc:postgresql://localhost:5432/mercadolivro?createDatabaseIfNotExist=true
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
   jpa:
@@ -8,7 +8,6 @@ spring:
       ddl-auto: validate
   jackson:
     default-property-inclusion: non_ null
-
 jwt:
-  secret: 2c57cf3a-c804-4dc5-8cd4-93b8d8581948
+  secret: 254bbdf6-9044-400c-98a2-a88262b57636
   expiration: 999999

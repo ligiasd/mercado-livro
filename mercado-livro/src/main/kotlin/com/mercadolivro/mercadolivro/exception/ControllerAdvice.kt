@@ -1,7 +1,7 @@
 package com.mercadolivro.mercadolivro.exception
 
-import com.mercadolivro.mercadolivro.controller.response.ErrorResponse
-import com.mercadolivro.mercadolivro.controller.response.FieldErrorResponse
+import com.mercadolivro.controller.response.ErrorResponse
+import com.mercadolivro.controller.response.FieldErrorResponse
 import com.mercadolivro.mercadolivro.enums.Errors
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

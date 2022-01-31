@@ -1,9 +1,9 @@
-package com.mercadolivro.mercadolivro.controller
+package com.mercadolivro.controller
 
- import com.mercadolivro.mercadolivro.controller.request.PostBookRequest
-import com.mercadolivro.mercadolivro.controller.request.PutBookRequest
-import com.mercadolivro.mercadolivro.controller.response.BookResponse
- import com.mercadolivro.mercadolivro.controller.response.PageResponse
+ import com.mercadolivro.controller.request.PostBookRequest
+import com.mercadolivro.controller.request.PutBookRequest
+import com.mercadolivro.controller.response.BookResponse
+ import com.mercadolivro.controller.response.PageResponse
  import com.mercadolivro.mercadolivro.extension.toBookModel
  import com.mercadolivro.mercadolivro.extension.toPageResponse
  import com.mercadolivro.mercadolivro.extension.toResponse

@@ -1,6 +1,6 @@
-package com.mercadolivro.mercadolivro.controller.mapper
+package com.mercadolivro.controller.mapper
 
-import com.mercadolivro.mercadolivro.controller.request.PostPurchaseRequest
+import com.mercadolivro.controller.request.PostPurchaseRequest
 import com.mercadolivro.mercadolivro.model.PurchaseModel
 import com.mercadolivro.service.BookService
 import com.mercadolivro.service.CustomerService

@@ -1,4 +1,4 @@
-package com.mercadolivro.mercadolivro.controller.request
+package com.mercadolivro.controller.request
 
 import com.fasterxml.jackson.annotation.JsonAlias
 import java.math.BigDecimal

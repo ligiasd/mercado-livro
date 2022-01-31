@@ -1,4 +1,4 @@
-package com.mercadolivro.mercadolivro.controller
+package com.mercadolivro.controller
 
 data class LoginRequest (
     val email: String,

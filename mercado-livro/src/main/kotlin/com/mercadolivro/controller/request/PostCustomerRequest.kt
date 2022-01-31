@@ -1,4 +1,4 @@
-package com.mercadolivro.mercadolivro.controller.request
+package com.mercadolivro.controller.request
 
 import com.mercadolivro.mercadolivro.validation.EmailAvailable
 import javax.validation.constraints.Email

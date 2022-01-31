@@ -1,8 +1,8 @@
-package com.mercadolivro.mercadolivro.controller
+package com.mercadolivro.controller
 
-import com.mercadolivro.mercadolivro.controller.request.PostCustomerRequest
-import com.mercadolivro.mercadolivro.controller.request.PutCustomerRequest
-import com.mercadolivro.mercadolivro.controller.response.CustomerResponse
+import com.mercadolivro.controller.request.PostCustomerRequest
+import com.mercadolivro.controller.request.PutCustomerRequest
+import com.mercadolivro.controller.response.CustomerResponse
 import com.mercadolivro.mercadolivro.extension.toCustomerModel
 import com.mercadolivro.mercadolivro.extension.toResponse
 import com.mercadolivro.mercadolivro.security.UserCanOnlyAccessTheirOwnResource
